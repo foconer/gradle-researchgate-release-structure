@@ -37,20 +37,20 @@ allprojects {
             dependency 'org.projectlombok:lombok:1.16.20'
         }
     }
-
-    release {
-        versionPropertyFile = './gradle.properties'
-        failOnCommitNeeded = false
-        failOnPublishNeeded = false
-        failOnUnversionedFiles = false
-        failOnUpdateNeeded = false
-        scmAdapters = [ net.researchgate.release.GitAdapter ]
-
-        buildTasks = ['clean', 'build']
-        tagTemplate = '$name-$version'
-    }
 }
 
 dependencies {
     compile project('gradle-researchgate-release-structure-model')
+}
+
+release {
+    versionPropertyFile = './gradle.properties'
+    failOnCommitNeeded = false
+    failOnPublishNeeded = false
+    failOnUnversionedFiles = false
+    failOnUpdateNeeded = false
+    scmAdapters = [ net.researchgate.release.GitAdapter ]
+
+    buildTasks = ['clean', 'build']
+    tagTemplate = '$name-$version'
 }
